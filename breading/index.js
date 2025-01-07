@@ -1,23 +1,37 @@
 const bread = document.querySelector('.bread');
+const maindesc = document.querySelector('.maindesc')
 
-// Variable to check if the animation is completed
 let animationCompleted = false;
 
-// Add event listener to trigger the animation once on hover
 bread.addEventListener('mouseenter', () => {
-  // If animation has already completed, do nothing
   if (animationCompleted) return;
 
-  // Add the class to trigger the animation
   bread.classList.add('animate');
+  maindesc.classList.add('animate');
 
-  // Listen for the animation end event to mark it as completed
   bread.addEventListener('animationend', () => {
-    animationCompleted = true; // Set flag when animation is complete
+    animationCompleted = true;
   });
 });
 
-// To reset and allow the animation to play again on the next hover
 bread.addEventListener('animationiteration', () => {
-  animationCompleted = false; // Reset flag for next hover
+  animationCompleted = false;
 });
+
+function highlightWords() {
+  const paragraphs = document.querySelectorAll('p, h1, h4');
+  const wordsToHighlight = ['npm', 'module'];
+
+  paragraphs.forEach(paragraph => {
+    let text = paragraph.innerHTML;
+
+    wordsToHighlight.forEach(word => {
+      const regex = new RegExp(`\\b${word}\\b`, 'gi');
+      text = text.replace(regex, `<span class="highlight">${word}</span>`);
+    });
+
+    paragraph.innerHTML = text;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', highlightWords);

@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Lexend+Exa:wght@100..900&display=swap');
 
 body {
     color: white;
-    background-color: darkslategray;
+    background-color: #2f4f4f;
 }
 
 @keyframes example {
@@ -22,6 +22,15 @@ body {
     }
 }
 
+@keyframes exampler {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .bread {
     font-family: "Lexend Exa", sans-serif;
     font-size: 6em;
@@ -33,9 +42,40 @@ body {
     padding-left: 0%;
 }
 
-/* Animation when triggered */
 .bread.animate {
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-fill-mode: forwards; /* Ensures the final state is kept */
+}
+
+.maindesc {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #426F6F;
+    width: fit-content;
+    height: fit-content;
+    pointer-events: none;
+    opacity: 0;
+    padding: 1%;
+    font-family: "Cousine", monospace;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.maindesc.animate {
+    animation-name: exampler;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.highlight {
+    color: #ff2f00;
+    font-weight: bold;
+}
+
+.docs {
+    pointer-events: all;
 }
